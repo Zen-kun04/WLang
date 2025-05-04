@@ -1,5 +1,10 @@
-# WLang - The programming language for the web
-## Why?
+# 💻 WLang - The programming language for the web
+
+WLang is a programming language designed to unify web syntaxes in a single language, thus simplifying web development!
+
+---
+
+## 📖 Why?
 In February 2023 to January 2024 I was learning web development, from basics to advanced topics. To be honest, almost everything was kind of "easy" to learn and practice.
 
 But I knew several people trying to learn web development but it's too difficult, and I can understand them because the web languages are divided into several sintaxis.
@@ -17,19 +22,40 @@ For example, here is a list of web languages with different sintaxis or concepts
 You get it, if you want to become a web developer you have to learn at least 3 or 4 different sintaxis.
 
 But here is WLang (as a prototype for the moment). THE language that will centralize all those sintaxis in only one to simplify the web development but with the same features.
-## Installation guide
-1. Download the installer from [here](https://github.com/Zen-kun04/WLang/releases/tag/Release)
-2. Open the installer. This will installer the compiler
 
-## Code example
-File: index.wl
+---
+
+## 📥 Installation  
+
+1️⃣ **Download** the installer from [GitHub Releases](https://github.com/Zen-kun04/WLang/releases/tag/Release)
+
+2️⃣ **Open the installer.** This will installer the compiler
+
+3️⃣ **Ready!** Installation is complete!
+
+---
+
+## ⚙️ Examples
+
+Here you will find some examples of how Wlang works, the index.wl file will be our code that later will be converted to our index.html
+
+---
+
 ```wl
+
+// File: index.wl
+
+// Main content of the page
 main() {
+
+    // Add a level-1 heading with the text "WLang"
     h1("This is a level-1 heading tag");
+
+    // Add a paragraph describing the language
     p("This is a paragraph");
 }
 ```
-will return (index.html)
+This will return an index.html:
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -47,25 +73,37 @@ will return (index.html)
 <!-- Made with <3 using WLang -->
 ```
 
-## Complete example
-File: index.wl
+## ⚙️ Complete example
+
 ```wl
+
+// File: index.wl
+
 head() {
+    // Set the page language to French
     page.setLang("fr");
+
+    // Set the page title displayed in the browser tab
     page.setTitle("WLang Website");
 }
 
+// Main content of the page
 main() {
+    // Add a level-1 heading with the text "WLang"
     heading1("WLang");
+
+    // Add a paragraph describing the language
     paragraph("The programming language for the web");
 }
 
+// Footer section with a link
 footer() {
+    // Add a clickable link to the GitHub repository
     url("https://github.com/Zen-kun04/WLang", "GitHub");
 }
 ```
 
-File: index.html
+This will return an index.html:
 ```html
 <!DOCTYPE html>
 <html lang="fr">
@@ -84,3 +122,15 @@ File: index.html
 </html>
 <!-- Made with <3 using WLang -->
 ```
+
+## 📜 License  
+
+Licensed under the **GNU General Public License v3.0 (GPLv3)**. This software is free to use, modify, and redistribute, as long as it remains licensed under the **GNU GPL v3.0**.
+
+---
+**Made with ❤️ by Zen-kun**
+
+**If you find this useful, give it a ⭐ on GitHub!**
+
+---
+
