@@ -15,6 +15,8 @@ class Parser:
         self.positions = {}
         self.source_tokens = {}
         self.language = "en"
+        self.directory = "."
+        self.components = {}
 
     def peek(self, file: str):
         if self.positions.get(file, 0) + 1 < len(self.source_tokens[file]):

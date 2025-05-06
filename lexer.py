@@ -4,6 +4,7 @@ from utils.classes import Token, Parser
 reserved = {
     "const": "KEYWORD",
     "paragraph": "N_FUNC",
+    "p": "N_FUNC",
     "heading1": "N_FUNC",
     "h1": "N_FUNC",
     "heading2": "N_FUNC",
@@ -34,6 +35,8 @@ reserved = {
     ")": "RPAREN",
     "{": "LBRACE",
     "}": "RBRACE",
+    "[": "LBRACK",
+    "]": "RBRACK",
     "+": "PLUS",
     "-": "MINUS",
     "*": "STAR",
@@ -90,6 +93,12 @@ def tokenize(code: str, source_file: str, parser: Parser):
         if not quoted and char in ('\n', ' '):
             pos += 1
             continue
+        
+        if char == '/' and peek(pos, code) == '/' and not quoted:
+            while pos < len(code) and code[pos] != '\n':
+                pos += 1
+            continue
+            
 
         if quoted and char != quoted:
             word += char

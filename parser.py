@@ -1,10 +1,10 @@
+from sub_parsers.comp import CompParser
 from sub_parsers.footer import FooterParser
 from sub_parsers.head import HeadParser
 from sub_parsers.main import MainParser
 from utils.classes import Parser
 from utils.a import base
-from os import mkdir
-from os.path import isdir
+from os import makedirs
 
 
 def parse(parser: Parser, source_file: str):
@@ -37,12 +37,20 @@ def parse(parser: Parser, source_file: str):
                 footer = True
                 footer_ast.append(FooterParser(parser, source_file).html())
                 continue
-            
-        raise Exception(f"Unregistered token: '{parser.current_token(source_file).value}' of type {parser.current_token(source_file).type}") 
+        if parser.current_token(source_file).type == "KEYWORD":
+            if parser.current_token(source_file).value == "comp":
+                parser.consume(source_file, "KEYWORD")
+                component_name = parser.consume(source_file, "IDENTIFIER").value
+                if component_name in parser.components:
+                    raise Exception(f"Error: the component \"{component_name}\" already exists!")
+                parser.components[component_name] = CompParser(parser, source_file).html()
+                continue
 
-    if not isdir("out"): mkdir("out")
-    with open("out/" + source_file.rsplit('.', 1)[0] + ".html", 'w') as f:
-        code = base.replace('[lang]', parser.language).replace("[head]", '\n'.join(head_ast)).replace("[body]", '\n'.join(body_ast)).replace("[footer]", f"""<footer>
-{'\n'.join(footer_ast)}
+        raise Exception(f"Unregistered token: '{parser.current_token(source_file).value}' of type {parser.current_token(source_file).type}") 
+    
+    makedirs("out\\" + source_file.split(parser.directory, 1)[1].rsplit('\\', 1) [0], exist_ok=True)
+    with open("out\\" + source_file.split(parser.directory, 1)[1].rsplit('.', 1)[0] + ".html", 'w') as f:
+        code = base.replace('[lang]', parser.language).replace("[head]", ''.join(head_ast)).replace("[body]", ''.join(body_ast)).replace("[footer]", f"""<footer>
+{''.join(footer_ast)}
 </footer>""" if footer_ast else "")
-        f.write(f"{code}\n<!-- Made with <3 using WLang -->")
+        f.write(f"{code}<!-- Made with <3 using WLang -->")

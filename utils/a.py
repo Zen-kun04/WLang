@@ -14,15 +14,5 @@ def scan(lexer: Lexer, path: str = '.'):
         elif isdir(join(path, file)):
             scan(lexer, path=join(path, file))
 
-base = """<!DOCTYPE html>
-<html lang="[lang]">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-[head]
-</head>
-<body>
-[body]
-</body>
-[footer]
-</html>"""
+
+base = """<!DOCTYPE html><html lang="[lang]"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">[head]</head><body><main>[body]</main></body>[footer]</html>"""

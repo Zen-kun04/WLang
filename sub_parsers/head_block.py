@@ -1,4 +1,7 @@
-from sub_parsers.language import LanguageParser
+from sub_parsers.meta.author import AuthorParser
+from sub_parsers.meta.description import DescriptionParser
+from sub_parsers.meta.keywords import KeywordsParser
+from sub_parsers.meta.language import LanguageParser
 from sub_parsers.title import TitleParser
 from utils.classes import Parser
 
@@ -19,12 +22,22 @@ class HeadBlockParser:
                 if parser.current_token(source_file).value == "setLang":
                     LanguageParser(parser, source_file)
                     continue
+                if parser.current_token(source_file).value == "setDescription":
+                    self.ast.append(DescriptionParser(parser, source_file).html())
+                    continue
+                if parser.current_token(source_file).value == "setAuthor":
+                    self.ast.append(AuthorParser(parser, source_file).html())
+                    continue
+                if parser.current_token(source_file).value == "setKeywords":
+                    self.ast.append(KeywordsParser(parser, source_file).html())
+                    continue
+                    
 
             raise Exception(f"Unregistered token: '{parser.current_token(source_file).value}' of type {parser.current_token(source_file).type}") 
         parser.consume(source_file, "RBRACE")
 
     def html(self):
-        return '\n'.join(self.ast)
+        return ''.join(self.ast)
 
     def __repr__(self):
         return f"<h{self.level}>{self.value.value}</h{self.level}>"
