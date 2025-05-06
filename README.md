@@ -27,7 +27,7 @@ But here is WLang (as a prototype for the moment). THE language that will centra
 
 ## 📥 Installation  
 
-1️⃣ **Download** the installer from [GitHub Releases](https://github.com/Zen-kun04/WLang/releases/tag/Release)
+1️⃣ **Download** the installer from [GitHub Releases](https://github.com/Zen-kun04/WLang/releases)
 
 2️⃣ **Open the installer.** This will installer the compiler
 
