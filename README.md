@@ -29,9 +29,15 @@ But here is WLang (as a prototype for the moment). THE language that will centra
 
 1️⃣ **Download** the installer from [GitHub Releases](https://github.com/Zen-kun04/WLang/releases)
 
-2️⃣ **Open the installer.** This will installer the compiler
+2️⃣ **Open the installer.** This will install the transpiler
 
 3️⃣ **Ready!** Installation is complete!
+
+---
+
+## 🤖 Commands
+
+`wlang compile [directory]` -> Convert all the `.wl` files into web files (like .html) recursively.
 
 ---
 
