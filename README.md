@@ -195,3 +195,4 @@ Licensed under the **GNU General Public License v3.0 (GPLv3)**. This software is
 
 ---
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Zen-kun04/WLang)
